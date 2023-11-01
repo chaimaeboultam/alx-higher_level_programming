@@ -2,13 +2,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-/*
- * *insert_node- a function  that inserts a number into a sorted singly linked list.
- * @**head: the linked list 
- * @number: the number that we will answer
+/**
+ * insert_node - Inserts a number into a sorted singly linked list
+ * @head: Pointer to the linked list
+ * @number: The number to be inserted
  *
- * Return:the address of the new node, or NULL if it failed
+ * Return: Address of the new node, or NULL if it failed
  */
 listint_t *insert_node(listint_t **head, int number)
 {
