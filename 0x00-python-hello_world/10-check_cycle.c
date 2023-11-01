@@ -1,4 +1,6 @@
 #include "lists.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * check_cycle - a function that checks if a singly linked list has a cycle in it.
@@ -7,17 +9,12 @@
  */
 int check_cycle(listint_t *list)
 {
-	if (list == NULL || list->next == NULL)
-		return (0);
-
-	listint_t *slow = list;
-	listint_t *fast = list->next;
+	listint_t *slow = list, *fast = list;
 
 	while (fast != NULL && fast->next != NULL)
 	{
 		slow = slow->next;
                 fast = fast->next->next;
-
 		if (slow == fast)
 			return (1);
 	}
