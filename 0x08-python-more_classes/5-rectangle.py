@@ -117,11 +117,6 @@ class Rectangle:
         Prints a message when an instance of Rectangle is deleted.
         """
         print("Bye rectangle...")
-
-# Test the class with the provided script
-my_rectangle = Rectangle(2, 4)
-print("Area: {} - Perimeter: {}".format(my_rectangle.area(), my_rectangle.perimeter()))
-
 # Delete the instance
 del my_rectangle
 
