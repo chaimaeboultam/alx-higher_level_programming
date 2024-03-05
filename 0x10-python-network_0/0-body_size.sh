@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 
 # Check if the correct number of arguments is provided
 if [ "$#" -ne 1 ]; then
