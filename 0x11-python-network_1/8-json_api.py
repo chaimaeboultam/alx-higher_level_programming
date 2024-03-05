@@ -1,23 +1,23 @@
 #!/usr/bin/python3
-"""
-takes in a string and sends a search request to the Star Wars API
-"""
 import requests
-from sys import argv
-
+import sys
 
 if __name__ == "__main__":
-    """
-    takes in a string and sends a search request to the Star Wars API
-    """
-    url = 'http://0.0.0.0:5000/search_user'.format(argv[1])
+    if len(sys.argv) > 1:
+        q = sys.argv[1]
+    else:
+        q = ""
 
-    r = requests.get(url)
+    payload = {'q': q}
+    url = 'http://0.0.0.0:5000/search_user'
+    response = requests.post(url, data=payload)
+
     try:
-        res_list = r.json().get('results')
-        res_count = r.json().get('count')
-        print("Number of results: {}".format(res_count))
-        for i in range(len(res_list)):
-            print(res_list[i].get('name'))
-    except:
-        pass
+        json_response = response.json()
+        if json_response:
+            print("[{}] {}".format(json_response.get('id'), json_response.get('name')))
+        else:
+            print("No result")
+    except ValueError:
+        print("Not a valid JSON")
+
